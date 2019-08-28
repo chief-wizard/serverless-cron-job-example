@@ -1,0 +1,27 @@
+service: week-cron
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: 'us-east-1'
+  frameworkVersion: ">=1.43.0"
+  timeout: 300000
+  environment:
+    DB_HOST: ${file(./secrets.json):DB_HOST}
+    DB_USER: ${file(./secrets.json):DB_USER}
+    DB_PASS: ${file(./secrets.json):DB_PASS}
+    DB_NAME: ${file(./secrets.json):DB_NAME}
+plugins:
+  - serverless-offline
+functions:
+  init:
+    handler: handler.init
+    events:
+      - http:
+          path: /init
+          method: get
+  transfer:
+    handler: handler.transfer
+    events:
+      # every Monday at 03:15 AM
+      - schedule: cron(15 3 ? * MON *)

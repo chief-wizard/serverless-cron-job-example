@@ -1,0 +1,21 @@
+{
+    "name": "cron-aws",
+    "version": "1.0.0",
+    "description": "",
+    "main": "handler.js",
+    "scripts": {
+        "start": "serverless offline",
+        "deploy": "serverless deploy",
+        "test": "mocha",
+        "remove": "serverless remove"
+    },
+    "dependencies": {
+        "aws-sdk": "^2.493.0",
+        "node-fetch": "^2.6.0",
+        "serverless-mysql": "^1.5.0"
+    },
+    "devDependencies": {
+        "mocha": "^6.2.0",
+        "serverless-offline": "^5.7.3"
+    }
+}
