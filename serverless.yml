@@ -1,11 +1,13 @@
 service: week-cron
+tenant: chiefwizard
+app: cron-database-rollover
 
 provider:
   name: aws
   runtime: nodejs8.10
   region: 'us-east-1'
   frameworkVersion: ">=1.43.0"
-  timeout: 300000
+  timeout: 900
   environment:
     DB_HOST: ${file(./secrets.json):DB_HOST}
     DB_USER: ${file(./secrets.json):DB_USER}
