@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "aws-sdk": "^2.493.0",
-        "node-fetch": "^2.6.0",
+        "node-fetch": "^3.1.1",
         "serverless-mysql": "^1.5.0"
     },
     "devDependencies": {
